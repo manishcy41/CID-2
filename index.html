@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced HTML5 Interactive Dashboard Template</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+    }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg-color);
+      color: var(--text);
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      background: #0f172a;
+      color: white;
+      border: 1px solid #475569;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+    }
+    dialog {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    button {
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Advanced Semantic HTML5 System</h1>
+    <p>Demonstrating highly functional, native browser features without heavy JavaScript.</p>
+  </header>
+
+  <main class="grid">
+    
+    <!-- 1. Native Search & Autocomplete via <datalist> -->
+    <section class="card">
+      <h2><label for="framework-search">Search Frameworks</label></h2>
+      <p>Native autocomplete interface using standard inputs.</p>
+      <input type="text" id="framework-search" list="frameworks" placeholder="Type to filter...">
+      
+      <datalist id="frameworks">
+        <option value="React"></option>
+        <option value="Vue.js"></option>
+        <option value="Angular"></option>
+        <option value="Svelte"></option>
+        <option value="Next.js"></option>
+      </datalist>
+    </section>
+
+    <!-- 2. Expandable Accordion via <details> and <summary> -->
+    <section class="card">
+      <h2>System Overview</h2>
+      <details>
+        <summary style="cursor: pointer; color: var(--accent); font-weight: bold;">View System Status Details</summary>
+        <div style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.4;">
+          <p><strong>Database:</strong> Operational (Ping: 12ms)</p>
+          <p><strong>Storage:</strong> 42% Remaining</p>
+          <p><strong>Last Sync:</strong> <time datetime="2026-10-13T09:45">Just now</time></p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 3. Complex Forms & Native Data Binding Tracking -->
+    <section class="card">
+      <h2>Resource Allocation</h2>
+      <form oninput="result.value = parseInt(allocation.value)">
+        <label for="allocation">Adjust Server Throttle (%):</label>
+        <input type="range" id="allocation" name="allocation" min="0" max="100" value="75">
+        
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <span>Current Level:</span>
+          <!-- <output> dynamically updates when the range slider moves -->
+          <output name="result" for="allocation" style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">75</output>
+        </div>
+      </form>
+    </section>
+
+    <!-- 4. Native Modal Dialog Popup via <dialog> -->
+    <section class="card">
+      <h2>Administrative Control</h2>
+      <p>Trigger a secure native modal dialog window overlay.</p>
+      <button onclick="document.getElementById('secureModal').showModal()">Open Command Center</button>
+
+      <dialog id="secureModal">
+        <h3>⚠️ Secure Environment</h3>
+        <p>You are accessing system-level structural tags. Proceed with caution.</p>
+        <form method="dialog">
+          <button type="submit">Acknowledge & Close</button>
+        </form>
+      </dialog>
+    </section>
+
+  </main>
+
+</body>
+</html>
